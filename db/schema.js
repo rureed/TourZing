@@ -2,7 +2,9 @@
 
 // TOUR GUIDE
 
-// guide_name, guide_phone, guide_cost, location (country, city), rating /5, 
+// guide_name, guide_phone, guide_cost, location (country, city), rating /5, , tour_guide_info
+// Tour #, Tour Title, Duration
+
 
 // USER
 
