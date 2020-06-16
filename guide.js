@@ -24,6 +24,16 @@ module.exports = function(sequelize, DataTypes) {
             msg: "Must be an email address"
         }
     },
+    phone: {
+        type: DataTypes.INTEGER, 
+        allowNull: false,
+        validate: {
+            min: 10, 
+            max: 10,
+            isNumeric: true,
+            msg: "Must be a phone number (xxx-xxx-xxxx)"
+        }
+    },
     country: {
         type: DataTypes.STRING,
         allowNull: false,
