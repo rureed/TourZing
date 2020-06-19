@@ -12,7 +12,7 @@ if (process.env.JAWSDB_URL) {
     port: 3306,
     user: "root",
     password: "123456789",
-    database: "tour_guide_db",
+    database: "tourGuide_db",
   });
 }
 
