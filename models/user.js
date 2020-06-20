@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
         unique: true,
         validate: {
             isEmail: true,
-            msg: "Must be an email address"
+            // msg: "Must be an email address"
         }
     },
     phone: {
