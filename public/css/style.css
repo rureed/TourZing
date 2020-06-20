@@ -5,3 +5,31 @@ body {
   background-size: cover;
   -o-background-size: cover;
 }
+
+.navbar-title {
+  padding: 20px;
+  font-size: 50px;
+  color: black !important;
+  font-family: "Krona One", sans-serif;
+  text-align: center;
+}
+
+.fa-mobile {
+  font-size: 20px;
+}
+
+#contact {
+  font-size: 15px;
+}
+
+.grey-text {
+  color: lightgrey;
+}
+
+.container {
+  padding: 50px;
+}
+
+.login {
+  text-align: left;
+}
