@@ -44,6 +44,24 @@ module.exports = function (app) {
     //     res.render("account", clientName);
     //   });
 
+    
+    // ---------------------------------------------------------------------------
+    // Adding this get with the hopes that it will render the user name
+    // after the Hello on the account handlebar page.  Referenced the "handlebarsLunch activity"
+    // may need "auth" instead of "api"...
+    // but this should be from the database, at this point, I think
+    app.get("/api/user_data", function(req, res) {
+        res.render("account", {
+            membername: name
+        });
+    });
+
+    app.get("/api/guide_data", function(req, res) {
+        res.render("account", {
+            membername: name
+        });
+    });
+
 }
 
 
