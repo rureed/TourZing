@@ -1,6 +1,28 @@
-<h1>TourZing</h1>
-<!--  Search Field  -->
+<h1>Eat-Da-Burger!</h1>
+<!--  CREATE BURGERS  -->
 <form class="create-form">
     <input type="text" name="burgerName" id="burgerName" placeholder="Enter Burger Name...">
     <button id="submitBurger">Submit</button>
 </form>
+<!--  UNEATEN BURGERS  -->
+<div id="not_devoured-div">
+    <h3>Burgers</h3>
+    <ul id="not_devoured-list">
+        {{#each not_devoured}}
+        <li class="not_devoured-burger">
+            {{this.burger_name}}
+            <button class="devoured-button" data-id="{{this.id}}">Devour!</button>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+<!--  EATEN BURGERS  -->
+<div id="devoured-div">
+    <h3>Devoured Burgers</h3>
+    <ul id="devoured-list">
+
+        {{#each devoured}}
+        <li class="devoured-burger">{{this.burger_name}}</li>
+        {{/each}}
+    </ul>
+</div>
