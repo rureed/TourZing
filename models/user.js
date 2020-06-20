@@ -52,7 +52,7 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
           isNumeric: true,
           isDate: true,
-          msg: "Input dates for your tour"
+          // msg: "Input dates for your tour"
         }
     }
   });
