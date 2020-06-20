@@ -53,7 +53,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     },
     tour: {
-        type: DateTypes.STRING,
+        type: DataTypes.STRING,
         allowNull: true,
         validate: {
             isAlpha: true,
