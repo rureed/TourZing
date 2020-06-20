@@ -34,7 +34,7 @@ module.exports = function (app) {
     app.get("/auth/register", function(req, res) {
         // If the user already has an account send them to the members page
         if (req.user) {
-          res.redirect("/account/");
+          res.redirect("/account");
         }
         res.sendFile(path.join(__dirname, "../views/register.handlebars"));
       });
@@ -42,7 +42,7 @@ module.exports = function (app) {
       app.get("/auth/login", function(req, res) {
         // If the user already has an account send them to the members page
         if (req.user) {
-          res.redirect("/account/");
+          res.redirect("/account");
         }
         res.sendFile(path.join(__dirname, "../views/login.handlebars"));
       });
@@ -56,11 +56,11 @@ module.exports = function (app) {
 
     //Display ratings page from account page when selected
 
-    app.get("/rating", function (req, res) {
+    app.get("/auth/rating", function (req, res) {
         res.render(path.join(__dirname, "../views/ratings.handlebars"));
     });
 
-    app.get("/tour-sign-up", function (req, res) {
+    app.get("/auth/tourSignUp", function (req, res) {
         res.render(path.join(__dirname, "../views/tour.handlebars"));
     });
 
@@ -84,16 +84,16 @@ module.exports = function (app) {
 
     app.get("/guide/register", function(req, res) {
         // If the user already has an account send them to the members page
-        if (req.user) {
-          res.redirect("/account/");
+        if (req.guide) {
+          res.redirect("/account");
         }
         res.sendFile(path.join(__dirname, "../views/registerGuide.handlebars"));
     });
 
     app.get("/guide/login", function(req, res) {
         // If the user already has an account send them to the members page
-        if (req.user) {
-          res.redirect("/account/");
+        if (req.guide) {
+          res.redirect("/account");
         }
         res.sendFile(path.join(__dirname, "../views/loginGuide.handlebars"));
     });
