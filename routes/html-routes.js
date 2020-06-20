@@ -70,5 +70,32 @@ module.exports = function (app) {
         res.redirect("/");
     });
 
+    
+    // ------------------------
+    // Tour Guide syntax
+    
+    app.get("/guide/register", function (req, res) {
+        res.render(path.join(__dirname, "../views/registerGuide.handlebars"));
+    });
+
+    app.get("/guide/login", function (req, res) {
+        res.render(path.join(__dirname, "../views/loginGuide.handlebars"));
+    });
+
+    app.get("/guide/register", function(req, res) {
+        // If the user already has an account send them to the members page
+        if (req.user) {
+          res.redirect("/account/");
+        }
+        res.sendFile(path.join(__dirname, "../views/registerGuide.handlebars"));
+    });
+
+    app.get("/guide/login", function(req, res) {
+        // If the user already has an account send them to the members page
+        if (req.user) {
+          res.redirect("/account/");
+        }
+        res.sendFile(path.join(__dirname, "../views/loginGuide.handlebars"));
+    });
 
 };
