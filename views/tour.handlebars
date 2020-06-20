@@ -5,17 +5,20 @@
 {{!-- This is me pontificating for now --}}
 
 <form class="tourSignUp" action="/auth/tourSignUp" method="POST">
-	<label for="guide">Guide Name:</label><br>
-	<input type="text" id="guide" name="guide"><br>
+	<label for="guideFirst">Guide First Name:</label><br>
+	<input type="text" id="guideFirst" name="guideFirst"><br>
+
+	<label for="guideLast">Guide Last Name:</label><br>
+	<input type="text" id="guideLast" name="guideLast"><br>
 
 	<label for="tour">Tour Name:</label><br>
 	<input type="text" id="tour" name="tour">
 
-    <label for="password">Credit Card:</label><br>
-	<input type="text" id="password" name="password">
+    <label for="creditcard">Credit Card:</label><br>
+	<input type="text" id="creditcard" name="creditcard">
 
 
 	<button type="submit">Submit</button>
 </form>
 
-{{>footer}}
+{{>footer2}}

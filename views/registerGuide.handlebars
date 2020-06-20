@@ -3,8 +3,11 @@
 <h1>Register as a New Tour Guide</h1>
 
 <form class="signup" action="/guide/register" method="POST">
-	<label for="guide">Guide Name:</label><br>
-	<input type="text" id="guide" name="guide"><br>
+	<label for="guideFirst">Guide First Name:</label><br>
+	<input type="text" id="guideFirst" name="guideFirst"><br>
+
+	<label for="guideLast">Guide Last Name:</label><br>
+	<input type="text" id="guideLast" name="guideLast"><br>
 
 	<label for="email">Email:</label><br>
 	<input type="text" id="email" name="email"><br>
@@ -27,12 +30,8 @@
     <label for="cost">Cost:</label><br>
 	<input type="text" id="cost" name="cost">
 
-    {{!-- Not sure is rating is appropriate here --}}
-    {{!-- <label for="rating">Rating:</label><br>
-	<input type="text" id="rating" name="rating"> --}}
-
-	<button type="submit">Join TourZing!</button>
+    <button type="submit">Join TourZing!</button>
 </form>
 
 
-{{>footer}}
+{{>footer2}}
