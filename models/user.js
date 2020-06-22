@@ -3,13 +3,21 @@ var bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     // The email cannot be null, and must be a proper email before creation
-    name: {
+    firstName: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         unique: true,
         validate: {
             isAlpha: true
         }
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+      validate: {
+          isAlpha: true
+      }
     },
     password: {
         type: DataTypes.STRING,
@@ -22,12 +30,12 @@ module.exports = function(sequelize, DataTypes) {
         unique: true,
         validate: {
             isEmail: true,
-            msg: "Must be an email address"
+            // msg: "Must be an email address"
         }
     },
     phone: {
         type: DataTypes.INTEGER, 
-        allowNull: false,
+        allowNull: true,
         unique: true,
         validate: {
             min: 10, 
@@ -38,7 +46,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     creditcard: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         unique: true,
         validate: {
             isNumeric: true,
@@ -48,11 +56,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     tourDate: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
         validate: {
           isNumeric: true,
           isDate: true,
-          msg: "Input dates for your tour"
+          // msg: "Input dates for your tour"
         }
     }
   });

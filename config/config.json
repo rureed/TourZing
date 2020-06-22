@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "Normal@12",
+=======
+    "password": "123456789",
+>>>>>>> d3e94c6e6e73383f5f57ceda5404b38099bc8668
     "database": "tourGuide_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

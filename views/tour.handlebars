@@ -4,18 +4,26 @@
 
 {{!-- This is me pontificating for now --}}
 
-<form action="/" method="POST">
-	<label for="guide">Guide Name:</label><br>
-	<input type="text" id="guide" name="guide"><br>
+<form class="tourSignUp" action="/auth/tourSignUp" method="POST">
+	<label for="guideFirst">Guide First Name:</label><br>
+	<input type="text" id="guideFirst" name="guideFirst"><br>
 
-	<label for="password">Phone Number:</label><br>
-	<input type="text" id="password" name="password">
+	<label for="guideLast">Guide Last Name:</label><br>
+	<input type="text" id="guideLast" name="guideLast"><br>
 
-    <label for="password">Credit Card:</label><br>
-	<input type="text" id="password" name="password">
+	<label for="tour">Tour Name:</label><br>
+	<input type="text" id="tour" name="tour">
+
+    <label for="creditcard">Credit Card:</label><br>
+	<input type="text" id="creditcard" name="creditcard">
 
 
 	<button type="submit">Submit</button>
 </form>
+<<<<<<< HEAD
 	
 {{>footer}}
+=======
+
+{{>footer2}}
+>>>>>>> d3e94c6e6e73383f5f57ceda5404b38099bc8668
