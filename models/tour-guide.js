@@ -61,11 +61,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     tour: {
         type: DataTypes.STRING,
-<<<<<<< HEAD
-        allowNull: true,
-=======
         allowNull: false,
->>>>>>> d3e94c6e6e73383f5f57ceda5404b38099bc8668
         validate: {
             isAlpha: true,
             msg: "What is your tour?"

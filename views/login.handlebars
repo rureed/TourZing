@@ -1,7 +1,8 @@
-{{>header}}
 
-<h1>Login as Existing Client</h1>
 
+<h1>Customer Login</h1>
+
+<div class="well">
 <form class="login" action="/auth/login" method="POST">
 	
 	<label for="email">Email Address:</label><br>
@@ -9,10 +10,7 @@
 
 	<label for="password">Password:</label><br>
 	<input type="password" class="form-control" id="password" name="password">
-
-	<button type="submit">Login</button>
 </form>
-
-
-
-{{>footer2}}
+</div>
+	<br>
+	<button type="submit" class="btn btn-dark">Login</button>
