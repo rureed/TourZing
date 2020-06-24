@@ -35,6 +35,10 @@ module.exports = function (app) {
         res.render("./views/account.handlebars")
     });
 
+
+
+    
+
     // db.User.findAll({
     
     //let clientName = db.User(name);

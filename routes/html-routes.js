@@ -48,7 +48,7 @@ module.exports = function (app) {
       });
 
 
-    
+
 
     app.get("/account", function (req, res) {
         res.render(path.join(__dirname, "../views/account.handlebars"));
