@@ -10,6 +10,17 @@ var app = express();
 var PORT = process.env.PORT || 7000;
 var db = require("./models");
 
+
+if (process.env.NODE_ENV === "production") {
+   app.use(express.static("build"));
+   app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname,  "build", "index.html"));
+    });
+  }
+
+
+
+
 app.set("view engine", "handlebars");
 
 app.use(express.static(path.join(__dirname, "public")));
