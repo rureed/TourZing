@@ -1,9 +1,6 @@
 {
   "name": "project2",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.16.1" 
-  },
   "description": "",
   "main": "server.js",
   "dependencies": {
@@ -24,8 +21,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
