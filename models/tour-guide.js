@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     firstName: {
         type: DataTypes.STRING,
         allowNull: true,
-        unique: true,
+        // unique: true,
         validate: {
             isAlpha: true
         }
@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     lastName: {
         type: DataTypes.STRING,
         allowNull: true,
-        unique: true,
+        // unique: true,
         validate: {
             isAlpha: true
         }
@@ -26,45 +26,45 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+        allowNull: true,
+        // unique: true,
         validate: {
             isEmail: true,
-            msg: "Must be an email address"
+            // msg: "Must be an email address"
         }
     },
     phone: {
-        type: DataTypes.INTEGER, 
+        type: DataTypes.STRING, 
         allowNull: true,
-        unique: true,
-        validate: {
-            min: 10, 
-            max: 10,
-            isNumeric: true,
-        }
+        // unique: true,
+        // validate: {
+        //     min: 10, 
+        //     max: 10,
+        //     isNumeric: true,
+        // }
     },
     country: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate: {
             isAlpha: true,
-            msg: "Must be a country"
+            // msg: "Must be a country"
         }
     },
     city: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate: {
             isAlpha: true,
-            msg: "Must be a city"
+            // msg: "Must be a city"
         }
     },
     tour: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate: {
             isAlpha: true,
-            msg: "What is your tour?"
+            // msg: "What is your tour?"
         }
     },
     cost: {
