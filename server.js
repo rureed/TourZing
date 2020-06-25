@@ -1,22 +1,37 @@
 var express = require("express");
-var path = require("path");
-var bodyParser = require("body-parser");
+var session = require("express-session");
+const path = require("path");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
 var exphbs = require("express-handlebars");
 
 var app = express();
+app.use(express.urlencoded({ extended: true }));
 
 var PORT = process.env.PORT || 7000;
 var db = require("./models");
 
+
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+  app.get("*", (req, res) => {
+       res.sendFile(path.resolve(__dirname,  "build", "index.html"));
+   });
+ }
+
+
+app.use(express.json());
 app.set("view engine", "handlebars");
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 
-app.use(express.json());
+
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
