@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "123456789",
+    "password": "Normal@12",
     "database": "tourGuide_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

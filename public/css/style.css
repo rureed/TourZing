@@ -7,12 +7,40 @@ body {
 }
 
 .navbar-title {
-  padding: 20px;
-  font-size: 50px;
+  padding: 50px;
+  font-size: 90px;
   color: black !important;
   font-family: "Krona One", sans-serif;
   text-align: center;
 }
+
+.theTitle {
+  font-size: 120px;
+  color: rgba(0, 0, 0, 0.514);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.well {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.514);
+  color: lightgray;
+  font-size: 20px;
+  border-radius: 15px;
+  
+}
+
+/* .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: left;
+} */
 
 .fa-mobile {
   font-size: 20px;
