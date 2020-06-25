@@ -36,6 +36,10 @@ module.exports = function (app) {
         res.render("./views/account.handlebars")
     });
 
+    app.get("/search", function (req, res) {
+        res.render("./views/results.handlebars")
+    });
+
 
 
     

@@ -29,6 +29,10 @@ module.exports = function (app) {
         res.render(path.join(__dirname, "../views/login.handlebars"));
     });
 
+    app.get("/guide/search", function (req, res) {
+        res.render(path.join(__dirname, "../views/results.handlebars"));
+    });
+
     
 
     app.get("/auth/register", function(req, res) {

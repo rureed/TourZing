@@ -63,11 +63,24 @@ body {
 }
 
 #result {
-  height: 300px;
-  width: 300px;
+  height: 600px;
+  width: 600px;
+  padding-top: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
 }
 
 img {
   max-width: 100%;
   max-height: 100%;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
