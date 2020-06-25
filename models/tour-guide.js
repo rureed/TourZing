@@ -50,34 +50,34 @@ module.exports = function(sequelize, DataTypes) {
     country: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-            isAlpha: true,
-            // msg: "Must be a country"
-        }
+        // validate: {
+        //     isAlpha: true,
+        //     // msg: "Must be a country"
+        // }
     },
     city: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-            isAlpha: true,
-            // msg: "Must be a city"
-        }
+        // validate: {
+        //     isAlpha: true,
+        //     // msg: "Must be a city"
+        // }
     },
     tour: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-            isAlpha: true,
-            // msg: "What is your tour?"
-        }
+        // validate: {
+        //     isAlpha: true,
+        //     // msg: "What is your tour?"
+        // }
     },
     cost: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        validate: {
-            isNumeric: true,
+        // validate: {
+        //     isNumeric: true,
 
-        }
+        // }
     },
     rating: {
         type: DataTypes.INTEGER,

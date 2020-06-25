@@ -1,9 +1,5 @@
 const db = require("../models");
-
-
 module.exports = function (app) {
-
-
     // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
     // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
     // otherwise send back an error
@@ -16,13 +12,11 @@ module.exports = function (app) {
         })
         res.redirect("/account");
     });
-
     // Route for logging user out
     app.get("/logout", function (req, res) {
         req.logout();
         res.redirect("/");
     });
-
     app.post("/auth/login", function (req, res) {
         db.User.findAll({
             firstName: req.body.firstName,
@@ -32,25 +26,10 @@ module.exports = function (app) {
         })
         res.redirect("/account");
     });
-
     app.get("/account", function (req, res) {
         res.render("./views/account.handlebars")
     });
-
-
-    app.get("/search", function (req, res) {
-        res.render("./views/results.handlebars")
-    });
-
-
-
-    
-
-    // db.User.findAll({
-
-    
-    
-    
+    // GET REQUEST FOR Hello NAME
     // let clientName = await db.User.findAll();
     //   console.log(clientName.every(user => user instanceof User));
     //   console.log("All users:", JSON.stringify(users, null, 2));
@@ -58,8 +37,6 @@ module.exports = function (app) {
     //   app.get("/account", function(req, res) {
     //     res.render("account", clientName);
     //   });
-
-    
     // ---------------------------------------------------------------------------
     // Adding this get with the hopes that it will render the user name
     // after the Hello on the account handlebar page.  Referenced the "handlebarsLunch activity"
@@ -70,18 +47,13 @@ module.exports = function (app) {
             membername: name
         });
     });
-
     app.get("/api/guide_data", function(req, res) {
         res.render("account", {
             membername: name
         });
     });
-
-
     // ---------------------------------------------
     // Tour Guide
-
-
     app.post("/guide/register", function (req, res) {
         db.Guide.create({
             firstName: req.body.firstName,
@@ -96,32 +68,16 @@ module.exports = function (app) {
         })
         res.redirect("/account");
     });
-
     app.get("/account", function (req, res) {
         res.render("./views/account.handlebars")
     });
     app.post("/guide/login", function (req, res) {
         db.Guide.findAll({
-            // firstName: req.body.firstName,
-            // lastName: req.body.lastName,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
             email: req.body.email,
             password: req.body.password
         })
         res.redirect("/account");
     });
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-

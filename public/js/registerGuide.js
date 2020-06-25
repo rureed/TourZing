@@ -16,8 +16,8 @@ $(document).ready(function () {
     signUpForm.on("submit", function (event) {
         event.preventDefault();
         let guideData = {
-            firstname: firstNameInput.val().trim(),
-            lastname: lastNameInput.val().trim(),
+            firstName: firstNameInput.val().trim(),
+            lastName: lastNameInput.val().trim(),
             email: emailInput.val().trim(),
             password: passwordInput.val().trim(),
             phone: phoneInput.val().trim(),
