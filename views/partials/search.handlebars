@@ -1,3 +1,5 @@
+{{>header-2}}
+
 <div class="col-12 container-fluid">
     <div class="row">
         <div class="col-6 list-container">
@@ -21,10 +23,16 @@
         </div>
 
         <div class="col-3 list-container">
-            <h2 id = "tourGuide">Tour Guide:</h2>
+            <h2 id="tourGuide">Tour Guide:</h2>
             <br>
             <br>
-            
+            <div class="well">
+                {{#each search}}
+                    <p>Guide Name: {{firstName}}</p>
+                    <p>City: {{city}}</p>
+                    <hr>
+                {{/each}}
+            </div>
         </div>
     </div>
-    <div>
+</div>
