@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     // Getting references to our form and inputs
     const signUpForm = $("form.signup");
     const firstNameInput = $("input#firstName")
@@ -10,6 +11,7 @@ $(document).ready(function () {
     const cityInput = $("input#city");
     const tourInput = $("input#tour");
     const costInput = $("input#cost");
+
     // When the signup button is clicked, we validate the name, email and password are not blank
     signUpForm.on("submit", function (event) {
         event.preventDefault();
@@ -24,6 +26,7 @@ $(document).ready(function () {
             tour: tourInput.val().trim(),
             cost: costInput.val().trim()
         };
+
         if (!guideData.firstName || !guideData.lastName || !guideData.email || !guideData.password ||
             !guideData.phone || !guideDate.country || !guideData.city || !guideData.tour || !guideData.cost) {
             return;
@@ -41,6 +44,7 @@ $(document).ready(function () {
         tourInput.val("");
         costInput.val("");
     });
+
     /// Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function signUpGuide(firstName, lastName, email, password, phone, country, city, tour, cost) {
@@ -61,8 +65,10 @@ $(document).ready(function () {
       })
       .catch(handleLoginErr);
   }
+
     function handleLoginErr(err) {
         $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
       }
+
 })
