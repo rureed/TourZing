@@ -42,12 +42,12 @@ module.exports = function (app) {
     // after the Hello on the account handlebar page.  Referenced the "handlebarsLunch activity"
     // may need "auth" instead of "api"...
     // but this should be from the database, at this point, I think
-    app.get("/api/user_data", function(req, res) {
+    app.get("/api/user_data", function (req, res) {
         res.render("account", {
             membername: name
         });
     });
-    app.get("/api/guide_data", function(req, res) {
+    app.get("/api/guide_data", function (req, res) {
         res.render("account", {
             membername: name
         });
@@ -79,5 +79,46 @@ module.exports = function (app) {
             password: req.body.password
         })
         res.redirect("/account");
+    });
+
+    // --------------------------------------------
+    // Search Bar
+
+    app.get("/guide/search", function (req, res) {
+        var searchGuide = [];
+
+        db.Guide.findOne({
+
+            guideReturn: {
+                firstName: req.params.firstName,
+                city: req.params.city
+            }
+
+        })
+            .then(function () {
+                searchGuide.push(guideReturn);
+                console.log(searchGuide, "ANYTHING");
+
+                // res.render("search", searchGuide);
+            })
+        // app.get("/guide/search", function (req, res) {
+        //     for (var i = 0; i < icecreams.length; i++) {
+        //         if (icecreams[i].name === req.params.name) {
+        //             return res.render("search", icecreams[i]);
+        //         }
+        //     }
+        // });
+
+        app.get("/guide/searchResult", function (req, res) {
+            res.render("search", { search: searchGuide });
+        });
+
+
+        // for (var i = 0; i < guides.length; i++) {
+
+        // return res.render("search", guides[i]);
+
+        // }
+        // });
     });
 };

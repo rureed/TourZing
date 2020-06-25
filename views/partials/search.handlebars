@@ -27,9 +27,12 @@
             <br>
             <br>
             <div class="well">
-                <p>Guide Name</p>
-                <p>Guide Contact</p>
+                {{#each search}}
+                    <p>Guide Name: {{firstName}}</p>
+                    <p>City: {{city}}</p>
+                    <hr>
+                {{/each}}
             </div>
         </div>
     </div>
-    <div>
+</div>
