@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     firstName: {
         type: DataTypes.STRING,
         allowNull: true,
-        unique: true,
+        // unique: true,
         validate: {
             isAlpha: true
         }
@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     lastName: {
         type: DataTypes.STRING,
         allowNull: true,
-        unique: true,
+        // unique: true,
         validate: {
             isAlpha: true
         }
@@ -22,12 +22,12 @@ module.exports = function(sequelize, DataTypes) {
     password: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        // unique: true
     },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        // unique: true,
         validate: {
             isEmail: true,
             msg: "Must be an email address"
@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
     phone: {
         type: DataTypes.INTEGER, 
         allowNull: true,
-        unique: true,
+        // unique: true,
         validate: {
             min: 10, 
             max: 10,

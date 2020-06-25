@@ -8,14 +8,14 @@ module.exports = function (app) {
 
     //Retreive home page using handlebars
 
-    app.get('/', function (req, res) {
-        res.render('home', {
-            about: `Welcome to TourZing, your one stop place for matching tourists with excellent tour
-    guides and amazing tours. When you go on vacation, you want maximize the time you have to see the best sights 
-    and have the best experience possible. Our curated list of experienced tour guides know the where and when
-    of the premier local sites and establishments in your place of choice. So come along and tour with us!`
-        });
-    });
+    // app.get('/', function (req, res) {
+    //     res.render('home', {
+    //         about: `Welcome to TourZing, your one stop place for matching tourists with excellent tour
+    // guides and amazing tours. When you go on vacation, you want maximize the time you have to see the best sights 
+    // and have the best experience possible. Our curated list of experienced tour guides know the where and when
+    // of the premier local sites and establishments in your place of choice. So come along and tour with us!`
+    //     });
+    // });
 
     //Display add user form
 
