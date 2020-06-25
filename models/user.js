@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     firstName: {
         type: DataTypes.STRING,
         allowNull: true,
-        unique: true,
+        // unique: true,
         validate: {
             isAlpha: true
         }
@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     lastName: {
       type: DataTypes.STRING,
       allowNull: true,
-      unique: true,
+      // unique: true,
       validate: {
           isAlpha: true
       }
@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        // unique: true,
         validate: {
             isEmail: true,
             // msg: "Must be an email address"
@@ -68,12 +68,12 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = function(models) {
     User.belongsTo(models.Guide, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
+  }; 
     
-    
-  };
+ 
   
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
@@ -87,9 +87,9 @@ module.exports = function(sequelize, DataTypes) {
     
   });
   
-  User.addHook("beforeCreate", function(user) {
-      user.creditcard = bcrypt.hashSync(user.creditcard, bcrypt.genSaltSync(10), null);
-  });
+  // User.addHook("beforeCreate", function(user) {
+  //     user.creditcard = bcrypt.hashSync(user.creditcard, bcrypt.genSaltSync(10), null);
+  // });
   
   return User;
 };

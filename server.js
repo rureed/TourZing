@@ -4,6 +4,8 @@ const path = require("path");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 var exphbs = require("express-handlebars");
+var session = require("express-session");
+var passport = require("./config/passport");
 
 var app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -32,6 +34,11 @@ app.use(passport.session());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 
 
+
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);

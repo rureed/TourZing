@@ -1,6 +1,8 @@
 $(document).ready(function () {
+  $("#tourGuide").addClass("hide");
   $("#searchLocation").on("click", function () {
     SearchPhotos();
+    $("#tourGuide").addClass("show");
   });
 
   function SearchPhotos() {
