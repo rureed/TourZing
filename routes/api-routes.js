@@ -37,7 +37,17 @@ module.exports = function (app) {
         res.render("./views/account.handlebars")
     });
 
-    // GET REQUEST FOR Hello NAME
+
+    app.get("/search", function (req, res) {
+        res.render("./views/results.handlebars")
+    });
+
+
+
+    
+
+    // db.User.findAll({
+
     
     
     
@@ -67,8 +77,10 @@ module.exports = function (app) {
         });
     });
 
+
     // ---------------------------------------------
     // Tour Guide
+
 
     app.post("/guide/register", function (req, res) {
         db.Guide.create({
@@ -88,17 +100,17 @@ module.exports = function (app) {
     app.get("/account", function (req, res) {
         res.render("./views/account.handlebars")
     });
-
     app.post("/guide/login", function (req, res) {
         db.Guide.findAll({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
+            // firstName: req.body.firstName,
+            // lastName: req.body.lastName,
             email: req.body.email,
             password: req.body.password
         })
         res.redirect("/account");
     });
-}
+
+};
 
 
 

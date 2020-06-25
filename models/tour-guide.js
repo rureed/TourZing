@@ -22,11 +22,13 @@ module.exports = function(sequelize, DataTypes) {
     password: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        // unique: true
     },
     email: {
         type: DataTypes.STRING,
+
         allowNull: true,
+
         // unique: true,
         validate: {
             isEmail: true,
@@ -37,11 +39,13 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING, 
         allowNull: true,
         // unique: true,
+
         // validate: {
         //     min: 10, 
         //     max: 10,
         //     isNumeric: true,
         // }
+
     },
     country: {
         type: DataTypes.STRING,

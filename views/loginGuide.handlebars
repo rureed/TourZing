@@ -1,7 +1,8 @@
-{{>header}}
 
-<h1 class="login">Login as an Existing Guide</h1>
 
+<h1 class="login">Tour Guide Login</h1>
+
+<div class="well">
 <form class="login" action="/guide/login" method="POST">
 	
 	<label for="email">Email Address:</label><br>
@@ -9,10 +10,8 @@
 
 	<label for="password">Password:</label><br>
 	<input type="password" class="form-control" id="password" name="password">
-
-	<button type="submit">Login</button>
+	<br>
+	<button type="submit" class="btn btn-dark">Login</button>
 </form>
+</div>
 
-
-
-{{>footer2}}

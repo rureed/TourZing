@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+
     // Getting references to our form and inputs
     const signUpForm = $("form.signup");
     const firstNameInput = $("input#firstName");
@@ -49,4 +50,5 @@ $(document).ready(function () {
         $("#alert").fadeIn(500);
     }
     
-})
+
+});
