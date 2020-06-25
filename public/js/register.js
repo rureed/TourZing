@@ -1,8 +1,10 @@
 $(document).ready(function () {
 
+
     // Getting references to our form and inputs
     const signUpForm = $("form.signup");
-    const nameInput = $("input#name")
+    const firstNameInput = $("input#firstName");
+    const lastNameInput = $("input#lastName");
     const emailInput = $("input#email");
     const passwordInput = $("input#password");
 
@@ -10,25 +12,29 @@ $(document).ready(function () {
     signUpForm.on("submit", function (event) {
         event.preventDefault();
         let userData = {
-            name: nameInput.val().trim(),
+            firstname: firstNameInput.val().trim(),
+            lastname: lastNameInput.val().trim(),
             email: emailInput.val().trim(),
             password: passwordInput.val().trim()
         };
 
-        if (!userData.name || !userData.email ||!userData.password) {
+        if (!userData.firstName ||!userData.lastName || !userData.email || !userData.password) {
             return;
         }
         // If we have an email and password, run the signUpUser function
-        signUpUser(userDate.name, userData.email, userData.password);
-        nameInput.val("");
+        signUpUser(userDate.firstName, userDate.lastName, userData.email, userData.password);
+        firstNameInput.val("");
+        lastNameInput.val("");
         emailInput.val("");
         passwordInput.val("");
     });
 
     /// Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(email, password) {
+  function signUpUser(firstName, lastName, email, password) {
     $.post("/auth/register", {
+      firstName: firstName,
+      lastName: lastName,
       email: email,
       password: password
     })
@@ -42,6 +48,7 @@ $(document).ready(function () {
     function handleLoginErr(err) {
         $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
-      }
+    }
     
-})
+
+});

@@ -9,7 +9,8 @@ module.exports = function (app) {
     // otherwise send back an error
     app.post("/auth/register", function (req, res) {
         db.User.create({
-            name: req.body.name,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
             email: req.body.email,
             password: req.body.password
         })
@@ -24,7 +25,8 @@ module.exports = function (app) {
 
     app.post("/auth/login", function (req, res) {
         db.User.findAll({
-            name: req.body.name,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
             email: req.body.email,
             password: req.body.password
         })
@@ -35,10 +37,23 @@ module.exports = function (app) {
         res.render("./views/account.handlebars")
     });
 
-    // db.User.findAll({
+
+    app.get("/search", function (req, res) {
+        res.render("./views/results.handlebars")
+    });
+
+
+
     
-    //let clientName = db.User(name);
-      
+
+    // db.User.findAll({
+
+    
+    
+    
+    // let clientName = await db.User.findAll();
+    //   console.log(clientName.every(user => user instanceof User));
+    //   console.log("All users:", JSON.stringify(users, null, 2));
     //   // Routes
     //   app.get("/account", function(req, res) {
     //     res.render("account", clientName);
@@ -62,7 +77,40 @@ module.exports = function (app) {
         });
     });
 
-}
+
+    // ---------------------------------------------
+    // Tour Guide
+
+
+    app.post("/guide/register", function (req, res) {
+        db.Guide.create({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password,
+            phone: req.body.phone,
+            country: req.body.country,
+            city: req.body.city,
+            tour: req.body.tour,
+            cost: req.body.cost
+        })
+        res.redirect("/account");
+    });
+
+    app.get("/account", function (req, res) {
+        res.render("./views/account.handlebars")
+    });
+    app.post("/guide/login", function (req, res) {
+        db.Guide.findAll({
+            // firstName: req.body.firstName,
+            // lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password
+        })
+        res.redirect("/account");
+    });
+
+};
 
 
 
