@@ -46,10 +46,11 @@ This is the command to initiate testing:
 If you have questions about the repo, contact us! 
 
 ## The Team
+(GitHub Profiles and Emails)
 - WillV1
     - wmvanhook@gmail.com
 - rureed
-    - 
+    - rureed@gmail.com
 - itsTadae
     - matt.henry144@gmail.com
 - codelucid 
