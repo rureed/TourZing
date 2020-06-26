@@ -1,14 +1,16 @@
 {
   "development": {
     "username": "root",
-    "password": "Newlife2020!",
+
+    "password": "LearningIsFun",
+
     "database": "tourGuide_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "Newlife2020!",
+    "password": "123456789",
     "database": "tourGuide_db",
     "host": "127.0.0.1",
     "dialect": "mysql",

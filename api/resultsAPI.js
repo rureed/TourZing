@@ -19,6 +19,7 @@ $(document).ready(function () {
         return data.json();
       })
       .then(function (data) {
+        //window.location.replace("/results");
         console.log(data);
 
         data.results.forEach((photo) => {

@@ -1,0 +1,86 @@
+body {
+  background: url(bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.navbar-title {
+  padding: 50px;
+  font-size: 90px;
+  color: black !important;
+  font-family: "Krona One", sans-serif;
+  text-align: center;
+}
+
+.theTitle {
+  font-size: 120px;
+  color: rgba(0, 0, 0, 0.514);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.well {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.514);
+  color: lightgray;
+  font-size: 20px;
+  border-radius: 15px;
+  
+}
+
+/* .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: left;
+} */
+
+.fa-mobile {
+  font-size: 20px;
+}
+
+#contact {
+  font-size: 15px;
+}
+
+.grey-text {
+  color: lightgrey;
+}
+
+.container {
+  padding: 50px;
+}
+
+.login {
+  text-align: left;
+}
+
+#result {
+  height: 600px;
+  width: 600px;
+  padding-top: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+

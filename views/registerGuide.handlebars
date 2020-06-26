@@ -1,0 +1,40 @@
+<h1>New Tour Guide Account</h1>
+<div class="well">
+	<form class="signup" action="/guide/register" method="POST">
+
+		<div class="row">
+			<div class="col">
+				{{!-- changed "Guide First Name to First Name for the label only" --}}
+				<label for="name">First Name:</label><br>
+				<input type="text" class="form-control" id="firstName" name="firstName">
+				{{!-- changed "Guide Last Name to Last Name for the label only" --}}
+				<label for="name">Last Name:</label><br>
+				<input type="text" class="form-control" id="lastName" name="lastName">
+
+				<label for="email">Email:</label><br>
+				<input type="text" class="form-control" id="email" name="email">
+
+				<label for="password">Password:</label><br>
+				<input type="password" class="form-control" id="password" name="password">
+
+				<label for="phone">Phone:</label><br>
+				<input type="text" class="form-control" id="phone" name="phone">
+			</div>
+			<div class="col">
+				<label for="country">Country:</label><br>
+				<input type="text" class="form-control" id="country" name="country">
+
+				<label for="city">City:</label><br>
+				<input type="text" class="form-control" id="city" name="city">
+
+				<label for="tour">Tour:</label><br>
+				<input type="text" class="form-control" id="tour" name="tour">
+
+				<label for="cost">Cost:</label><br>
+				<input type="text" class="form-control" id="cost" name="cost">
+			</div>
+		</div>
+		<br>
+		<button type="submit" class="btn btn-dark">Join TourZing!</button>
+	</form>
+</div>

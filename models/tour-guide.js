@@ -3,10 +3,18 @@ var bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
   var Guide = sequelize.define("Guide", {
     // The email cannot be null, and must be a proper email before creation
-    name: {
+    firstName: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+        allowNull: true,
+        // unique: true,
+        validate: {
+            isAlpha: true
+        }
+    },
+    lastName: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        // unique: true,
         validate: {
             isAlpha: true
         }
@@ -14,63 +22,67 @@ module.exports = function(sequelize, DataTypes) {
     password: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        // unique: true
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+
+        allowNull: true,
+
+        // unique: true,
         validate: {
             isEmail: true,
-            msg: "Must be an email address"
+            // msg: "Must be an email address"
         }
     },
     phone: {
-        type: DataTypes.INTEGER, 
-        allowNull: false,
-        unique: true,
-        validate: {
-            min: 10, 
-            max: 10,
-            isNumeric: true,
-            msg: "Must be a phone number (xxx-xxx-xxxx)"
-        }
+        type: DataTypes.STRING, 
+        allowNull: true,
+        // unique: true,
+
+        // validate: {
+        //     min: 10, 
+        //     max: 10,
+        //     isNumeric: true,
+        // }
+
     },
     country: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isAlpha: true,
-            msg: "Must be a country"
-        }
+        allowNull: true,
+        // validate: {
+        //     isAlpha: true,
+        //     // msg: "Must be a country"
+        // }
     },
     city: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isAlpha: true,
-            msg: "Must be a city"
-        }
+        allowNull: true,
+        // validate: {
+        //     isAlpha: true,
+        //     // msg: "Must be a city"
+        // }
     },
     tour: {
-        type: DateTypes.STRING,
+        type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-            isAlpha: true,
-            msg: "Describe your expertise"
-        }
+        // validate: {
+        //     isAlpha: true,
+        //     // msg: "What is your tour?"
+        // }
     },
     cost: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            isNumeric: true,
+        allowNull: true,
+        // validate: {
+        //     isNumeric: true,
 
-        }
+        // }
     },
     rating: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
+        default: 5,
         validate: {
             min: 1, 
             max: 5,
