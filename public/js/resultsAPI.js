@@ -23,12 +23,12 @@ $(document).ready(function () {
       .then(function (data) {
         //window.location.replace("/results");
         console.log(data);
-
+        // call the 
         data.results.forEach((photo) => {
-          let result = `
+          let result = `<div>
                 <img src="${photo.urls.regular}">
                 <a href="${photo.links.download}">
-        
+             </div>
             `;
 
           // document.getElementById("result").innerHTML(result);

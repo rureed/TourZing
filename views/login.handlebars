@@ -3,16 +3,31 @@
 <h1>Client Login</h1>
 
 <div class="well">
-<form class="login" action="/auth/login" method="POST">
+{{!-- <form class="login" action="/auth/login" method="POST">
 	
 	<label for="email">Email Address:</label><br>
-	<input type="text" class="form-control" id="email" name="email"><br>
+	<input type="email" class="form-control" id="email" name="email"><br>
 
 	<label for="password">Password:</label><br>
 	<input type="password" class="form-control" id="password" name="password">
 	<br>
 	<button type="submit" class="btn btn-dark">Login</button>
 
+</form> --}}
+
+
+<form class="login" action="/auth/login" method="post">
+    <div>
+        <label>Email address:</label><br>
+        <input type="email" id="email" name="email"/>
+    </div>
+    <div>
+        <label>Password:</label><br>
+        <input type="password" id="password" name="password"/>
+    </div>
+    <div>
+        <button type="submit" value="Log In"/>Login</button>
+    </div>
 </form>
 </div>
 

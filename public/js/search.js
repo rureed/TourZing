@@ -1,6 +1,16 @@
 // const db = require("../../models");
 
-// $(document).ready(function () {
+ $(document).ready(function () {
+
+     $.get("/api/guide_list").then(function(data) {
+   $(".well").append(data)
+ });
+// call the /api/guide
+// get the result
+// jquery get the eelemtns and show the info
+
+
+ })
 //     // This file just does a GET request to figure out which user is logged in
 //     // and updates the HTML on the page
 //     // $.get("/api/guide_list").then(function(data) {
