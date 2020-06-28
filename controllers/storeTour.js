@@ -7,9 +7,10 @@ module.exports = (req, res) => {
         guideFirstName: req.body.guideFirstName,
         guideLastName: req.body.guideLastName,
         tourname: req.body.tourName,
-        date: req.body.date,
+        creditcard: req.body.creditcard,
+        tourDate: req.body.tourDate,
         phone: req.body.phone,
-        creditcard: req.body.creditCard
+        }).then((user) => {
       }, (error,user) => {
         if(error){
             const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message)
@@ -17,15 +18,17 @@ module.exports = (req, res) => {
             req.flash('data',{
                 guideFirstName: req.body.guideFirstName,
                 guideLastName: req.body.guideLastName,
-                tourname: req.body.tourName,
-                date: req.body.date,
+                tour: req.body.tour,
+                creditcard: req.body.creditcard,
+                tourDate: req.body.tourDate,
                 phone: req.body.phone,
-                creditcard: req.body.creditCard
+                
               })
-            return res.redirect('/account')
+            res.redirect('/account')
         }
-    })
-    res.redirect("/account");
+    
+})
+   res.redirect("/account") 
     
     
 }

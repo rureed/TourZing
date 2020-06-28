@@ -3,7 +3,7 @@ var bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
   var Guide = sequelize.define("Guide", {
     // The email cannot be null, and must be a proper email before creation
-    firstName: {
+    guideFirstName: {
         type: DataTypes.STRING,
         allowNull: true,
         // unique: true,
@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
             isAlpha: true
         }
     },
-    lastName: {
+    guideLastName: {
         type: DataTypes.STRING,
         allowNull: true,
         // unique: true,
@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
             // msg: "Must be an email address"
         }
     },
-    phone: {
+    guidePhone: {
         type: DataTypes.STRING, 
         allowNull: true,
         // unique: true,
@@ -47,36 +47,12 @@ module.exports = function(sequelize, DataTypes) {
         // }
 
     },
-    country: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        // validate: {
-        //     isAlpha: true,
-        //     // msg: "Must be a country"
-        // }
-    },
     city: {
         type: DataTypes.STRING,
         allowNull: true,
         // validate: {
         //     isAlpha: true,
         //     // msg: "Must be a city"
-        // }
-    },
-    tour: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        // validate: {
-        //     isAlpha: true,
-        //     // msg: "What is your tour?"
-        // }
-    },
-    cost: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        // validate: {
-        //     isNumeric: true,
-
         // }
     },
     rating: {
@@ -98,14 +74,14 @@ module.exports = function(sequelize, DataTypes) {
     };
 
   // Creating a custom method for our Guide model. This will check if an unhashed password entered by the Guide can be compared to the hashed password stored in our database
-  Guide.prototype.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
+  Guide.prototype.validPassword = function(guidePassword) {
+    return bcrypt.compareSync(guidePassword, this.guidePassword);
   };
   
   // Hooks are automatic methods that run during various phases of the Guide Model lifecycle
   // In this case, before a Guide is created, we will automatically hash their password
-  Guide.addHook("beforeCreate", function(guide) {
-    guide.password = bcrypt.hashSync(guide.password, bcrypt.genSaltSync(10), null);
+  Guide.addHook("beforeCreate", function(user) {
+    usre.guidePassword = bcrypt.hashSync(user.guidePassword, bcrypt.genSaltSync(10), null);
   });
   
   return Guide;

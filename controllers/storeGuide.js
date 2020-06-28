@@ -8,8 +8,7 @@ module.exports = (req, res) => {
         email: req.body.email,
         password: req.body.password,
         phone: req.body.phone,
-        city: req.body.city,
-        cost: req.body.cost},
+        city: req.body.city},
     (error,user) =>{
         if(error) {
             const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message)
@@ -17,6 +16,6 @@ module.exports = (req, res) => {
             req.flash('data', req.body)
             return res.redirect('./guide/register')
         }
-        res.redirect('/')
+        res.redirect('/account')
     })
 }

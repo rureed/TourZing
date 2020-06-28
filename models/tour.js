@@ -25,13 +25,13 @@ module.exports = function(sequelize, DataTypes) {
         unique: true
     },
     creditcard: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: true,
         unique: true,
         validate: {
             isNumeric: true,
             isCreditCard: true,
-            msg: "Enter a 16 digit credit card number"
+            // msg: "Enter a 16 digit credit card number"
         }
     },
     tourDate: {
@@ -44,25 +44,27 @@ module.exports = function(sequelize, DataTypes) {
         }
     },
     phone: {
-        type: DataTypes.INTEGER, 
+        type: DataTypes.BIGINT, 
         allowNull: true,
         unique: true,
         validate: {
             min: 10, 
             max: 10,
             isNumeric: true,
-            msg: "Must be a phone number (xxx-xxx-xxxx)"
+            // msg: "Must be a phone number (xxx-xxx-xxxx)"
         }
     },
   });
 
-//   User.associate = function(models) {
-//     User.belongsTo(models.Guide, {
-//       foreignKey: {
-//         allowNull: true
-//       }
-//     });
-//   }; 
+  TourSet.associate = function(models) {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    TourSet.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
     
  
   

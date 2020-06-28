@@ -37,12 +37,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-
-
-
-
-
-
 const homePageController = require("./controllers/home");
 const newUserController = require("./controllers/newUser");
 const storeUserController = require("./controllers/storeUser");
@@ -55,7 +49,7 @@ const newGuideController = require("./controllers/newGuide");
 const storeGuideController = require("./controllers/storeGuide")
 const newTourController = require("./controllers/newTour");
 const ratingsController = require("./controllers/ratings");
-
+const storeTourController = require("./controllers/storeTour");
 
 
 app.get('/', homePageController);
@@ -95,7 +89,9 @@ app.post('/auth/login',
 app.get('/guide/login', guideLoginController);
 app.get('/accountGuide', guideAccountController);
 app.get('/guide/register', newGuideController);
-app.get('/tour-sign-up', newTourController);
+app.post('/guide/register', storeGuideController);
+app.get('/tour/signup', newTourController);
+app.post('/tour/signup', storeTourController);
 app.get('/ratings', ratingsController);
 app.get('/logout', function (req, res) {
   req.logout();
