@@ -2,33 +2,33 @@ $(document).ready(function () {
 
     // Getting references to our form and inputs
     const signUpForm = $("form.signup");
-    const guideFirstNameInput = $("input#guideFirstName")
-    const guideLastNameInput = $("input#guideLastName")
+    const guideFirstNameInput = $("input#firstName")
+    const guideLastNameInput = $("input#lastName")
     const emailInput = $("input#email");
     const passwordInput = $("input#password");
-    const guidePhoneInput = $("input#guidePhone");
+    const guidePhoneInput = $("input#phone");
     const cityInput = $("input#city");
 
     // When the signup button is clicked, we validate the name, email and password are not blank
     signUpForm.on("submit", function (event) {
         event.preventDefault();
-        let guideData = {
-            guideFirstName: guideFirstNameInput.val().trim(),
-            guideLastName: guideLastNameInput.val().trim(),
+        let userData = {
+           firstName: guideFirstNameInput.val().trim(),
+            lastName: guideLastNameInput.val().trim(),
             email: emailInput.val().trim(),
             password: passwordInput.val().trim(),
-            guidePhone: guidePhoneInput.val().trim(),
+            phone: guidePhoneInput.val().trim(),
             city: cityInput.val().trim(),
             
         };
 
-        if (!guideData.guideFirstName || !guideData.guideLastName || !guideData.email || !guideData.password ||
-            !guideData.guidePhone || !guideData.city) {
+        if (!userData.firstName || !userData.lastName || !userData.email || !userData.password ||
+            !userData.phone || !userData.city) {
             return;
         }
         // If we have an email and password, run the signUpUser function
-        signUpGuide(guideData.guideFirstName, guideData.guideLastName, guideData.email, 
-          guideData.password, guideData.guidePhone, guideData.city);
+        signUpGuide(userData.firstName, userData.lastName, userData.email, 
+          userData.password, userData.phone, userData.city);
         guideFirstNameInput.val("");
         guideLastNameInput.val("");
         emailInput.val("");
@@ -39,13 +39,13 @@ $(document).ready(function () {
 
     /// Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpGuide(guideFirstName, guideLastName, email, password, guidePhone, city) {
+  function signUpGuide(firstName, lastName, email, password, phone, city) {
     $.post("/guide/register", {
-      guideFirstName: guideFirstName,
-      guideLastName: guideLastName,
+      firstName: firstName,
+      lastName: lastName,
       email: email,
       password: password,
-      guidePhone: guidePhone,
+      phone: phone,
       city: city,
     })
       .then(function(data) {

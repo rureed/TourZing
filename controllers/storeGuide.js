@@ -2,7 +2,7 @@ const db = require('../models/');
 const path = require('path');
 
 module.exports = (req, res) => {
-    db.User.create({
+    db.Guide.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
@@ -14,8 +14,8 @@ module.exports = (req, res) => {
             const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message)
             req.flash('validationErrors', validationErrors)
             req.flash('data', req.body)
-            return res.redirect('./guide/register')
+            return res.redirect('./accountGuide')
         }
-        res.redirect('/account')
+        res.redirect('/accountGuide')
     })
 }

@@ -3,7 +3,7 @@ var bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
   var Guide = sequelize.define("Guide", {
     // The email cannot be null, and must be a proper email before creation
-    guideFirstName: {
+    firstName: {
         type: DataTypes.STRING,
         allowNull: true,
         // unique: true,
@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
             isAlpha: true
         }
     },
-    guideLastName: {
+    lastName: {
         type: DataTypes.STRING,
         allowNull: true,
         // unique: true,
@@ -26,16 +26,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
         type: DataTypes.STRING,
-
         allowNull: true,
-
         // unique: true,
         validate: {
             isEmail: true,
             // msg: "Must be an email address"
         }
     },
-    guidePhone: {
+    phone: {
         type: DataTypes.STRING, 
         allowNull: true,
         // unique: true,
@@ -81,7 +79,7 @@ module.exports = function(sequelize, DataTypes) {
   // Hooks are automatic methods that run during various phases of the Guide Model lifecycle
   // In this case, before a Guide is created, we will automatically hash their password
   Guide.addHook("beforeCreate", function(user) {
-    usre.guidePassword = bcrypt.hashSync(user.guidePassword, bcrypt.genSaltSync(10), null);
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
   
   return Guide;
