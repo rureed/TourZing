@@ -72,14 +72,14 @@ module.exports = function(sequelize, DataTypes) {
     };
 
   // Creating a custom method for our Guide model. This will check if an unhashed password entered by the Guide can be compared to the hashed password stored in our database
-  Guide.prototype.validPassword = function(guidePassword) {
-    return bcrypt.compareSync(guidePassword, this.guidePassword);
+  Guide.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
   };
   
   // Hooks are automatic methods that run during various phases of the Guide Model lifecycle
   // In this case, before a Guide is created, we will automatically hash their password
   Guide.addHook("beforeCreate", function(user) {
-    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    guide.password = bcrypt.hashSync(guide.password, bcrypt.genSaltSync(10), null);
   });
   
   return Guide;
