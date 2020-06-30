@@ -90,7 +90,7 @@ app.post('/tour/signup', storeTourController);
 
 app.get('/ratings', ratingsController);
 
-app.get('./guide/search', newSearchController);
+app.get('/guide/search', newSearchController);
 
 app.get('/logout', function (req, res) {
   req.logout();
