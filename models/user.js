@@ -6,7 +6,6 @@ module.exports = function(sequelize, DataTypes) {
     firstName: {
         type: DataTypes.STRING,
         allowNull: true,
-        // unique: true,
         validate: {
             isAlpha: true
         }
@@ -14,7 +13,6 @@ module.exports = function(sequelize, DataTypes) {
     lastName: {
       type: DataTypes.STRING,
       allowNull: true,
-      // unique: true,
       validate: {
           isAlpha: true
       }
@@ -27,10 +25,9 @@ module.exports = function(sequelize, DataTypes) {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        // unique: true,
+        unique: true,
         validate: {
             isEmail: true,
-            // msg: "Must be an email address"
         }
     },
   });

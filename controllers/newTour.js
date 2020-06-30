@@ -5,6 +5,4 @@ module.exports = (req, res) => {
    
         res.render('tour');
   
-
-// res.redirect('/account')
 }

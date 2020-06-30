@@ -4,12 +4,12 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const passport = require("./config/passport");
-const passportGuide = require("./config/passportGuide");
+// const passportGuide = require("./config/passportGuide");
 const exphbs = require("express-handlebars");
 const flash = require("connect-flash");
-const TourSet = require('./models/');
 const isAuthenticated = require("./config/middleware/isAuthenticated");
-const isAuthenticatedGuide = require("./config/middleware/isAuthenticatedGuide");
+// const isAuthenticatedGuide = require("./config/middleware/isAuthenticatedGuide");
+
 
 const PORT = process.env.PORT || 7000;
 const db = require("./models");
@@ -30,8 +30,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(passportGuide.initialize());
-app.use(passportGuide.session());
+
+// app.use(passportGuide.initialize());
+// app.use(passportGuide.session());
 
 
 const homePageController = require("./controllers/home");
@@ -40,15 +41,14 @@ const newUserController = require("./controllers/newUser");
 const storeUserController = require("./controllers/storeUser");
 const loginController = require("./controllers/login");
 
-const newGuideController = require("./controllers/newGuide");
-const storeGuideController = require("./controllers/storeGuide");
-const loginGuideController = require("./controllers/loginGuide");
-
-
+// const newGuideController = require("./controllers/newGuide");
+// const storeGuideController = require("./controllers/storeGuide");
+// const loginGuideController = require("./controllers/loginGuide");
 
 const newTourController = require("./controllers/newTour");
-const ratingsController = require("./controllers/ratings");
+const ratingsController = require("./controllers/newRatings");
 const storeTourController = require("./controllers/storeTour");
+const newSearchController = require("./controllers/newSearch");
 
 
 app.get('/', homePageController);
@@ -67,41 +67,35 @@ app.get('/account', isAuthenticated, function (req, res) {
   )
 });
 
-app.get('/guide/register', newGuideController);
-app.post('/guide/register', storeGuideController);
-app.get('/guide/login', loginGuideController);
+// app.get('/guide/register', newGuideController);
+// app.post('/guide/register', storeGuideController);
+// app.get('/guide/login', loginGuideController);
 
-app.post('/guide/login',
-  passportGuide.authenticate('local', {
-    successRedirect: '/accountGuide',
-    failureRedirect: '/',
-    failureFlash: true
-  }));
+// app.post('/guide/login',
+//   passportGuide.authenticate('local', {
+//     successRedirect: '/accountGuide',
+//     failureRedirect: '/',
+//     failureFlash: true
+//   }));
 
-app.get('/accountGuide', isAuthenticatedGuide, function (req, res) {
-  console.log(req.user)
-  res.render('accountGuide', { guidename: req.user.firstName }
-  )
-});
+// app.get('/accountGuide', isAuthenticatedGuide, function (req, res) {
+//   console.log(req.user)
+//   res.render('accountGuide', { guidename: req.user.firstName }
+//   )
+// });
 
 
 app.get('/tour/signup', newTourController);
 app.post('/tour/signup', storeTourController);
+
 app.get('/ratings', ratingsController);
+
+app.get('./guide/search', newSearchController);
+
 app.get('/logout', function (req, res) {
   req.logout();
   res.redirect("/");
 });
-
-
-// app.post('/ratings/post', async function (req, res) {
-//   await TourSet.create({
-//     guideFirstName: req.body.guideFirstName,
-//     guideLastName: req.body.guideLastName,
-//     rating: rating
-//   }),
-//     res.redirect('/account')
-// });
 
 
 // // Requiring our routes

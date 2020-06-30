@@ -1,3 +1,3 @@
-module.exports = (req, res) => {
-    res.render('results')
-}
+// module.exports = (req, res) => {
+//     res.render('results')
+// }

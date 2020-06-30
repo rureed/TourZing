@@ -79,7 +79,7 @@ module.exports = function(sequelize, DataTypes) {
   // Hooks are automatic methods that run during various phases of the Guide Model lifecycle
   // In this case, before a Guide is created, we will automatically hash their password
   Guide.addHook("beforeCreate", function(user) {
-    guide.password = bcrypt.hashSync(guide.password, bcrypt.genSaltSync(10), null);
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
   
   return Guide;

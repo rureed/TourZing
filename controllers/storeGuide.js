@@ -8,19 +8,25 @@ module.exports = (req, res) => {
         email: req.body.email,
         password: req.body.password,
         phone: req.body.phone,
-        city: req.body.city},
-        ).then((user) => {
-            // if(error){
-            //     const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message)
-            //     req.flash('validationErrors', validationErrors)
-            //     req.flash('data',{
-            //         firstName: req.body.firstName,
-            //         lastName: req.body.lastName,
-            //         email: req.body.email,
-            //         password: req.body.password
-            //     })
-            //     return res.redirect('/auth/register')
-            // }else {
-        res.redirect('/accountGuide')
+        city: req.body.city
+    },
+    ).then(function() {
+        res.redirect(307, "/api/login");
+      
+    }).catch((error) => {
+        console.log(error)
+        const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message)
+        req.flash('validationErrors', validationErrors)
+        req.flash('data', {
+
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+        phone: req.body.phone,
+        city: req.body.city
+        })
+        return res.status(400)
+        
     })
 }
