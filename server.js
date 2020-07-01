@@ -26,6 +26,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.use(flash());
 
 app.use(express.static("public"));
+app.use(express.static("client/build"));
 app.use(session({ secret: "cats" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
