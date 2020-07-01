@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
           isAlpha: true
       }
     },
-    tour: {
+    tourCity: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true

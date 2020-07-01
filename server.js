@@ -49,6 +49,7 @@ const newTourController = require("./controllers/newTour");
 const ratingsController = require("./controllers/newRatings");
 const storeTourController = require("./controllers/storeTour");
 const newSearchController = require("./controllers/newSearch");
+const searchResultsController = require("./controllers/searchResults");
 
 
 app.get('/', homePageController);
@@ -91,6 +92,8 @@ app.post('/tour/signup', storeTourController);
 app.get('/ratings', ratingsController);
 
 app.get('/guide/search', newSearchController);
+app.get('/guide/search', searchResultsController);
+
 
 app.get('/logout', function (req, res) {
   req.logout();

@@ -2,7 +2,6 @@ const express = require('express');
 const db = require('../models');
 const path = require('path');
 const passport = require("../config/passport");
-const router = express.Router();
 
 
 module.exports = (req, res) => {

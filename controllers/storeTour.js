@@ -8,7 +8,7 @@ module.exports = (req, res) => {
         lastName: req.body.guideLastName,
         tourname: req.body.tourName,
         creditcard: req.body.creditcard,
-        tourDate: req.body.tourDate,
+        tourCity: req.body.tourCity,
         phone: req.body.phone,
         }).then(function () {
           res.redirect(307, "/auth/login");
@@ -19,10 +19,12 @@ module.exports = (req, res) => {
           req.flash('validationErrors', validationErrors)
           req.flash('data', {
   
-              firstName: req.body.firstName,
-              lastName: req.body.lastName,
-              email: req.body.email,
-              password: req.body.password,
+            firstName: req.body.firstName,
+            lastName: req.body.guideLastName,
+            tourname: req.body.tourName,
+            creditcard: req.body.creditcard,
+            tourCity: req.body.tourCity,
+            phone: req.body.phone,
           })
           return res.status(400)
     
