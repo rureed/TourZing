@@ -12,7 +12,7 @@ $(document).ready(function () {
   getNames();
 
   async function getNames() {
-    const response = await fetch('/guide/search');
+    const response = await fetch('/guide/search/:firstName');
     const data = await response.json();
     console.log(data);
 

@@ -92,7 +92,7 @@ app.post('/tour/signup', storeTourController);
 app.get('/ratings', ratingsController);
 
 app.get('/guide/search', newSearchController);
-app.get('/guide/search', searchResultsController);
+app.get('/guide/search/:firstName', searchResultsController);
 
 
 app.get('/logout', function (req, res) {
