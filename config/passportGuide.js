@@ -1,25 +1,25 @@
-var passport = require("passport");
+
+var passportGuide = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 const db = require('../models');
 
 
-
-passport.use(new LocalStrategy(
+passportGuide.use(new LocalStrategy(
   {
     usernameField: "email"
   },
   function(email, password, done) {
     console.log({email, password})
-    db.User.findOne({where:{ email: email }}) .then(function(dbUser) {
+    db.Guide.findOne({where:{ email: email }}) .then(function(dbGuide) {
       
       // if (err) { return done(err); }
-      if (!dbUser) {
+      if (!dbGuide) {
         return done(null, false, { message: 'Incorrect username.' });
       }
-      else if (!dbUser.validPassword(password)) {
+      else if (!dbGuide.validPassword(password)) {
         return done(null, false, { message: 'Incorrect password.' });
       }
-      return done(null, dbUser);
+      return done(null, dbGuide);
     });
   }
 ))
@@ -28,13 +28,13 @@ passport.use(new LocalStrategy(
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
-passport.serializeUser(function(user, cb) {
+passportGuide.serializeUser(function(user, cb) {
   cb(null, user);
 });
 
-passport.deserializeUser(function(obj, cb) {
+passportGuide.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
 
 // Exporting our configured passport
-module.exports = passport;
+module.exports = passportGuide;

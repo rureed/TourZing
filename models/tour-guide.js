@@ -26,9 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
         type: DataTypes.STRING,
-
         allowNull: true,
-
         // unique: true,
         validate: {
             isEmail: true,
@@ -47,36 +45,12 @@ module.exports = function(sequelize, DataTypes) {
         // }
 
     },
-    country: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        // validate: {
-        //     isAlpha: true,
-        //     // msg: "Must be a country"
-        // }
-    },
     city: {
         type: DataTypes.STRING,
         allowNull: true,
         // validate: {
         //     isAlpha: true,
         //     // msg: "Must be a city"
-        // }
-    },
-    tour: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        // validate: {
-        //     isAlpha: true,
-        //     // msg: "What is your tour?"
-        // }
-    },
-    cost: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        // validate: {
-        //     isNumeric: true,
-
         // }
     },
     rating: {
@@ -104,8 +78,8 @@ module.exports = function(sequelize, DataTypes) {
   
   // Hooks are automatic methods that run during various phases of the Guide Model lifecycle
   // In this case, before a Guide is created, we will automatically hash their password
-  Guide.addHook("beforeCreate", function(guide) {
-    guide.password = bcrypt.hashSync(guide.password, bcrypt.genSaltSync(10), null);
+  Guide.addHook("beforeCreate", function(user) {
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
   
   return Guide;
