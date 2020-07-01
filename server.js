@@ -2,7 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const path = require("path");
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 const passport = require("./config/passport");
 // const passportGuide = require("./config/passportGuide");
 const exphbs = require("express-handlebars");
@@ -17,16 +17,18 @@ const db = require("./models");
 const app = express();
 app.set("view engine", "handlebars");
 
-app.use(bodyParser.json());
-app.use(express.json());
-app.use(cookieParser())
+
+// app.use(express.json());
+// app.use(cookieParser())
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.use(flash());
 
 app.use(express.static("public"));
+app.use(express.static("client/build"));
 app.use(session({ secret: "cats" }));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -92,7 +94,7 @@ app.post('/tour/signup', storeTourController);
 app.get('/ratings', ratingsController);
 
 app.get('/guide/search', newSearchController);
-app.get('/guide/search/:firstName', searchResultsController);
+app.get('/guide/search/:city', searchResultsController);
 
 
 app.get('/logout', function (req, res) {
