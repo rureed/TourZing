@@ -6,13 +6,13 @@ body {
   -o-background-size: cover;
 }
 
-.navbar-title {
+/* .navbar-title {
   padding: 50px;
   font-size: 90px;
   color: black !important;
   font-family: "Krona One", sans-serif;
   text-align: center;
-}
+} */
 
 .theTitle {
   font-size: 120px;
@@ -32,14 +32,16 @@ body {
   
 }
 
-/* .footer {
+/* .footer2 {
   position: fixed;
+  height: 50px;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: black;
+  background-color: rgb(35, 35, 35);
   color: white;
   text-align: left;
+  text
 } */
 
 .fa-mobile {

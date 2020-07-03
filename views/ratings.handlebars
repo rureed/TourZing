@@ -2,17 +2,17 @@
 
 <h1>Add Your Tour Rating</h1>
 
-<form class="rating" action="/auth/rating" method="POST">
-    <label for="name">Guide First Name:</label><br>
-	<input type="text" id="guideFirst" name="guideFirst"><br>
+<div class="well">
+	<form class="rating" action="/auth/rating" method="POST">
+		<label for="name">Guide First Name:</label><br>
+		<input type="text" class="form-control" id="guideFirst" name="guideFirst"><br>
 
-	<label for="name">Guide Last Name:</label><br>
-	<input type="text" id="guideLast" name="guideLast"><br>
+		<label for="name">Guide Last Name:</label><br>
+		<input type="text" class="form-control" id="guideLast" name="guideLast"><br>
 
-	<label for="rating">Rating:</label><br>
-	<input type="text" id="rating" name="rating">
-
-    <button type="submit">Submit</button>
-</form>
-
-{{>footer2}}
+		<label for="rating">Rating:</label><br>
+		<input type="text" class="form-control" id="rating" name="rating">
+		<br>
+		<button type="submit" class="btn btn-dark">Submit</button>
+	</form>
+</div>

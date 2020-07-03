@@ -1,36 +1,27 @@
 {{>header-2}}
 
 <div class="col-12 container-fluid">
-    <div class="row">
-        <div class="col-6 list-container">
-
-            <h2>Find A Tour</h2>
-
-            <div style="display: inline;">
-                <span>
-                    <input style="position:absolute" class="form-control mr-sm-2" type="text" id="search"
-                        placeholder="Enter City Name..." />
-                </span>
-            </div>
-
-        </div>
-
-
-        <div class="col-3 list-container">
+    <h1>Find A Tour</h1>
+    <div class="row well">
+        <div class="col list-container">
+            <span>
+                <label for="city">Look up a city:</label><br>
+                <input class="form-control " type="text" id="search">
+            </span>
             <br>
-            <br>
-            <button type="button" id="searchLocation" class="btn btn-info">Search</button>
+            <button type="button" id="searchLocation" class="btn btn-dark">Search</button>
         </div>
-
+        <div class="col list-container">
+        </div>
         <div class="col-3 list-container">
             <h2 id="tourGuide">Tour Guide:</h2>
             <br>
             <br>
             <div class="well">
                 {{#each search}}
-                    <p>Guide Name: {{firstName}}</p>
-                    {{!-- <p>City: {{city}}</p> --}}
-                    <hr>
+                <p>Guide Name: {{firstName}}</p>
+                {{!-- <p>City: {{city}}</p> --}}
+                <hr>
                 {{/each}}
             </div>
         </div>
